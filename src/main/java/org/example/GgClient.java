@@ -76,7 +76,12 @@ public class GgClient {
      */
     public void sendMessage(String message) {
         System.out.println("-> " + message);
-        this.userSession.getAsyncRemote().sendText(message);
+
+        if (this.userSession != null) {
+            this.userSession.getAsyncRemote().sendText(message);
+        } else {
+            System.out.println("Session not exists");
+        }
     }
 
     /**

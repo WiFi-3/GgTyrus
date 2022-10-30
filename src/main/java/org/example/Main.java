@@ -35,6 +35,8 @@ public class Main {
             }
         });
 
+        Thread.sleep(1000);
+
         clientEndPoint.sendMessage(getMessageGg(
                 "auth",
                 Json.createObjectBuilder()
@@ -42,11 +44,33 @@ public class Main {
                         .add("token", args[1])
         ));
 
+        Thread.sleep(1000);
+
         clientEndPoint.sendMessage(getMessageGg(
                 "join",
                 Json.createObjectBuilder()
                         .add("channel_id", 115023)
                         .add("hidden", 0)
+        ));
+
+        Thread.sleep(1000);
+
+        clientEndPoint.sendMessage(getMessageGg(
+                "join",
+                Json.createObjectBuilder()
+                        .add("channel_id", 115023)
+                        .add("hidden", 0)
+        ));
+
+        Thread.sleep(1000);
+
+        clientEndPoint.sendMessage(getMessageGg(
+                "send_message",
+                Json.createObjectBuilder()
+                        .add("channel_id", 115023)
+                        .add("text", "test")
+                        .add("hideIcon", false)
+                        .add("mobile", false)
         ));
 
         /* @TODO Timer or Async.setSendTimeout or TyrusRemoteEndpoint.sendPing */
